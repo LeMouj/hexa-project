@@ -50,7 +50,8 @@ public class Partie {
         Reponse reponse = new Reponse(getMot());
         nbEssais++;
         reponse.compare(motPropose);
-        if (reponse.lettresToutesPlacees()) {
+
+        if (reponse.lettresToutesPlacees() || nbEssais >= NB_ESSAIS_MAX) {
             done();
         }
         return reponse;

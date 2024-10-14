@@ -46,7 +46,12 @@ public class Mastermind {
             return ResultatPartie.ERROR;
         }
 
-        return calculeResultat(partieEnCours.get(), motPropose);
+        Partie partie = partieEnCours.get();
+        Reponse reponse = partie.tourDeJeu(motPropose);
+
+        boolean isTerminee = partie.isTerminee();
+        partieRepository.update(partie);
+        return ResultatPartie.create(reponse, isTerminee);
     }
 
     // on évalue le résultat du mot proposé pour le tour de jeu
