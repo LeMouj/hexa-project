@@ -21,9 +21,12 @@ public class Reponse {
     // du mot proposé
     public void compare(String essai) {
         for (int i = 0; i < essai.length(); i++) {
-            char carCourant = essai.charAt(i);
-            resultat.add(evaluationCaractere(carCourant, i));
+            evalueEtAjouteCaractere(essai.charAt(i), i);
         }
+    }
+
+    private void evalueEtAjouteCaractere(char carCourant, int position) {
+        resultat.add(evaluationCaractere(carCourant, position));
     }
 
     // si toutes les lettres sont placées
